@@ -14,12 +14,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
+        self.allConfigs()
     }
 
     
 //MARK: - all configs
     fileprivate func allConfigs() {
-        
+        self.ratingViewConfig()
     }
     
 //MARK: - rating view
@@ -27,6 +28,7 @@ class ViewController: UIViewController {
     fileprivate func ratingViewConfig() {
         self.view.addSubview(self.ratingView)
         self.ratingViewConstraints()
+        self.ratingView.backgroundColor = .red
     }
     //constraints
     fileprivate func ratingViewConstraints() {
