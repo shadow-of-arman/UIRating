@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		45925D9C25BC12BB00C1C9C7 /* UIRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45925D9B25BC12BB00C1C9C7 /* UIRating.swift */; };
+		45925DB525BC2EF800C1C9C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45925DB425BC2EF700C1C9C7 /* Assets.xcassets */; };
 		45C9C3BA25BC0D9B00146E2A /* UIRating.h in Headers */ = {isa = PBXBuildFile; fileRef = 45C9C3B825BC0D9B00146E2A /* UIRating.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		45925D9B25BC12BB00C1C9C7 /* UIRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRating.swift; sourceTree = "<group>"; };
+		45925DB425BC2EF700C1C9C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45C9C3B525BC0D9B00146E2A /* UIRating.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIRating.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		45C9C3B825BC0D9B00146E2A /* UIRating.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIRating.h; sourceTree = "<group>"; };
 		45C9C3B925BC0D9B00146E2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 			children = (
 				45C9C3B825BC0D9B00146E2A /* UIRating.h */,
 				45925D9B25BC12BB00C1C9C7 /* UIRating.swift */,
+				45925DB425BC2EF700C1C9C7 /* Assets.xcassets */,
 				45C9C3B925BC0D9B00146E2A /* Info.plist */,
 			);
 			path = UIRating;
@@ -160,6 +163,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45925DB525BC2EF800C1C9C7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
