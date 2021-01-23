@@ -53,6 +53,9 @@ open class UIRating: UIView {
     fileprivate func sliderConfig() {
         self.addSubview(self.slider)
         self.sliderConstraints()
+        self.slider.setThumbImage(UIImage(), for: .normal)
+        self.slider.setMinimumTrackImage(UIImage(), for: .normal)
+        self.slider.setMaximumTrackImage(UIImage(), for: .normal)
         self.addSliderGesturesAndTargets()
     }
     //gestures
@@ -108,7 +111,7 @@ open class UIRating: UIView {
     
 //MARK: - Slider objc
     @objc fileprivate func sliderUpdated(_ slider: UISlider) {
-        print("hi")
+        print(self.slider.value)
     }
     
     @objc fileprivate func sliderTapped(gestureRecognizer: UIGestureRecognizer) {

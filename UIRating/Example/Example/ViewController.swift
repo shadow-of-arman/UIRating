@@ -28,7 +28,6 @@ class ViewController: UIViewController {
     fileprivate func ratingViewConfig() {
         self.view.addSubview(self.ratingView)
         self.ratingViewConstraints()
-        self.ratingView.backgroundColor = .red
     }
     //constraints
     fileprivate func ratingViewConstraints() {
