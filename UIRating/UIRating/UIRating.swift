@@ -53,6 +53,17 @@ open class UIRating: UIView {
     fileprivate func sliderConfig() {
         self.addSubview(self.slider)
         self.sliderConstraints()
+        self.addSliderGesturesAndTargets()
+    }
+    //gestures
+    fileprivate func addSliderGesturesAndTargets() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.sliderTapped(gestureRecognizer:)))
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(self.sliderTapped(gestureRecognizer:)))
+        self.slider.addGestureRecognizer(tapGestureRecognizer)
+        self.slider.addGestureRecognizer(panGestureRecognizer)
+        self.slider.addTarget(self, action: #selector(self.sliderUpdated(_:)), for: .valueChanged)
+        self.slider.addTarget(self, action: #selector(self.sliderValueChanged(_:)), for: .touchUpInside)
+        self.slider.addTarget(self, action: #selector(self.sliderBeingDragged(_:)), for: .touchDown)
     }
     //constraints
     fileprivate func sliderConstraints() {
@@ -95,36 +106,33 @@ open class UIRating: UIView {
     }
     
     
-    //MARK: - Slider objc
-        @objc fileprivate func sliderUpdated(_ slider: UISlider) {
-            
-        }
-        
-        @objc fileprivate func sliderTapped(gestureRecognizer: UIGestureRecognizer) {
-            let pointTapped: CGPoint = gestureRecognizer.location(in: self.slider)
-
-            let positionOfSlider: CGPoint = self.slider.frame.origin
-            let widthOfSlider: CGFloat = self.slider.frame.size.width
-            let newValue = ((pointTapped.x - positionOfSlider.x) * CGFloat(self.slider.maximumValue) / widthOfSlider)
-            self.slider.setValue(Float(newValue), animated: true)
-                if gestureRecognizer.state == .ended {
-                    
-                }
-            self.sliderUpdated(self.slider)
-        }
-        
-        @objc fileprivate func sliderBeingDragged(_ sender: UIScrollView) {
-            
-            self.sliderUpdated(self.slider)
-        }
-        
-        @objc fileprivate func sliderValueChanged(_ sender: UIScrollView) {
-           
-           
-            self.sliderUpdated(self.slider)
-        }
-        
+//MARK: - Slider objc
+    @objc fileprivate func sliderUpdated(_ slider: UISlider) {
+        print("hi")
     }
+    
+    @objc fileprivate func sliderTapped(gestureRecognizer: UIGestureRecognizer) {
+        let pointTapped: CGPoint = gestureRecognizer.location(in: self.slider)
 
+        let positionOfSlider: CGPoint = self.slider.frame.origin
+        let widthOfSlider: CGFloat = self.slider.frame.size.width
+        let newValue = ((pointTapped.x - positionOfSlider.x) * CGFloat(self.slider.maximumValue) / widthOfSlider)
+        self.slider.setValue(Float(newValue), animated: true)
+            if gestureRecognizer.state == .ended {
+                
+            }
+        self.sliderUpdated(self.slider)
+    }
+    
+    @objc fileprivate func sliderBeingDragged(_ sender: UIScrollView) {
+        
+        self.sliderUpdated(self.slider)
+    }
+    
+    @objc fileprivate func sliderValueChanged(_ sender: UIScrollView) {
+        
+        
+        self.sliderUpdated(self.slider)
+    }
     
 }
