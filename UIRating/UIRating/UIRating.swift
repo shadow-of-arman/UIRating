@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+/// A customizable rating view.
 open class UIRating: UIView {
     
     fileprivate let slider = UISlider()
@@ -35,6 +36,7 @@ open class UIRating: UIView {
         }
     }
     
+    /// The delegate for UIRating.
     open var delegate: UIRatingDelegate?
     
     //icons
@@ -51,11 +53,15 @@ open class UIRating: UIView {
     
 //MARK: View life cycle
     
+    /// The default initializer for UIRating.
+    /// - Parameter frame: Sets the frame for the UIRating instance.
     override public init(frame: CGRect) {
         super.init(frame: frame)
         self.allConfigs()
     }
     
+    /// The required coder initializer for UIRating.
+    /// - Parameter coder: NSCoder.
     public required init?(coder: NSCoder) {
         super.init(coder: coder)
         
@@ -216,7 +222,7 @@ extension UIRating: UIRatingDelegate {
 }
 
 private extension UIStackView {
-    
+    /// Removes all arranged subviews within a StackView.
     func removeAllArrangedSubviews() {
         
         let removedSubviews = arrangedSubviews.reduce([]) { (allSubviews, subview) -> [UIView] in
