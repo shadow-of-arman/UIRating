@@ -140,7 +140,7 @@ open class UIRating: UIView {
         }
         for i in 0...(numberOfOptions - 1) {
             let imageView = self.stackView.arrangedSubviews[i] as! UIImageView
-            if self.allowHalfSelection && self.slider.value > (self.option - y) && self.slider.value < (self.option - y + 0.1) {
+            if self.allowHalfSelection && self.slider.value > (self.option - y) && self.slider.value < (self.option - y + (y / 2)) {
                 self.rating += ratingIncrease
                 if imageView.image != self.halfFullIcon {
                     UIView.transition(with: imageView, duration: 0.3, options: .transitionCrossDissolve, animations: {
