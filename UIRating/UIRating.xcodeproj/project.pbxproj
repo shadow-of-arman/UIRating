@@ -13,7 +13,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		45925D9725BC125E00C1C9C7 /* PBXContainerItemProxy */ = {
+		45179D1825BE06F700C23804 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 45C9C3E625BC0E3100146E2A /* Example.xcodeproj */;
 			proxyType = 2;
@@ -28,7 +28,7 @@
 		45C9C3B525BC0D9B00146E2A /* UIRating.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIRating.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		45C9C3B825BC0D9B00146E2A /* UIRating.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIRating.h; sourceTree = "<group>"; };
 		45C9C3B925BC0D9B00146E2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		45C9C3E625BC0E3100146E2A /* Example.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Example.xcodeproj; path = Example/Example.xcodeproj; sourceTree = "<group>"; };
+		45C9C3E625BC0E3100146E2A /* Example.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Example.xcodeproj; path = ../Example/Example.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,10 +42,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		45925D9425BC125A00C1C9C7 /* Products */ = {
+		45179D1525BE06F700C23804 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				45925D9825BC125E00C1C9C7 /* Example.app */,
+				45179D1925BE06F700C23804 /* Example.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -137,7 +137,7 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 45925D9425BC125A00C1C9C7 /* Products */;
+					ProductGroup = 45179D1525BE06F700C23804 /* Products */;
 					ProjectRef = 45C9C3E625BC0E3100146E2A /* Example.xcodeproj */;
 				},
 			);
@@ -149,11 +149,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		45925D9825BC125E00C1C9C7 /* Example.app */ = {
+		45179D1925BE06F700C23804 /* Example.app */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.application;
 			path = Example.app;
-			remoteRef = 45925D9725BC125E00C1C9C7 /* PBXContainerItemProxy */;
+			remoteRef = 45179D1825BE06F700C23804 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
