@@ -19,7 +19,7 @@ A customizable rating View written in Swift.
 
 ```ruby
 # CocoaPods
-pod "UIVideoPlayer", "~> 0.1.0"
+pod "UIRating", "~> 1.0.0"
 ```
 ## Usage
 
