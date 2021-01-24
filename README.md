@@ -25,6 +25,42 @@ pod "UIRating", "~> 1.0.0"
 
 The sample project in the example folder provides an example of how to integrate `UIRating`, otherwise you can follow these steps.
 
+Create an instance of UIRating: 
+
+``` Swift
+ let ratingView = UIRating()
+```
+Give the desired constraints and set the delegate:
+
+``` Swift
+ self.ratingView.delegate = self
+```
+DONE! 
+
+### Customization
+
+
+``` Swift
+ self.stackView.emptyIcon = UIImage(named: "example") //sets the icon for empty rating.
+ self.stackView.halfFullIcon = UIImage(named: "example") //sets the icon for half a rating.
+ self.stackView.fullIcon = UIIma(named: "example") //sets the icon for a full rating.
+
+ self.stackView.numberOfOptions = 7 //sets the number of rating options.
+ 
+ self.stackView.allowHalfSelections = true //enables selecting half a rating.
+```
+
+### Delegate
+
+```Swift
+ extension ViewController: UIRatingDelegate {
+    func currentRating(rating: Double) {
+        print(rating)
+    }
+}
+
+```
+
 ## Documentation
 You can find [the docs here](http://shadow-of-arman.github.io/UIRating/). Documentation is generated with [jazzy](https://github.com/realm/jazzy) and hosted on [GitHub-Pages](https://pages.github.com).
 

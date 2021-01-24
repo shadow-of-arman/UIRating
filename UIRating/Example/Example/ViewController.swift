@@ -60,8 +60,6 @@ class ViewController: UIViewController {
         NSLayoutConstraint(item: self.ratingView2, attribute: .width, relatedBy: .equal, toItem: self.view, attribute: .width, multiplier: 0.7, constant: 0).isActive = true
         NSLayoutConstraint(item: self.ratingView2, attribute: .height, relatedBy: .equal, toItem: self.ratingView2, attribute: .width, multiplier: 0, constant: 60).isActive = true
     }
-
-
 }
 
 extension ViewController: UIRatingDelegate {
