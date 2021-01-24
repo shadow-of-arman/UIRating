@@ -30,6 +30,7 @@ class ViewController: UIViewController {
     fileprivate func ratingView1Config() {
         self.view.addSubview(self.ratingView1)
         self.ratingView1Constraints()
+        self.ratingView1.delegate = self
     }
     //constraints
     fileprivate func ratingView1Constraints() {
@@ -61,5 +62,12 @@ class ViewController: UIViewController {
     }
 
 
+}
+
+extension ViewController: UIRatingDelegate {
+    func currentRating(rating: Double) {
+        print(rating)
+    }
+    
 }
 

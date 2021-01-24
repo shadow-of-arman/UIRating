@@ -35,6 +35,8 @@ open class UIRating: UIView {
         }
     }
     
+    open var delegate: UIRatingDelegate?
+    
     //icons
     /// Sets the icon to use for an empty rating.
     lazy open var emptyIcon    = UIImage(named: "UIRating_empty_icon"    , in: Bundle.init(for: type(of: self)), compatibleWith: nil) {
@@ -175,7 +177,7 @@ open class UIRating: UIView {
             }
             self.option += y
         }
-        print(self.rating)
+        self.delegate?.currentRating(rating: self.rating)
         self.rating = 0
         self.option = y //reset
     }
@@ -204,6 +206,13 @@ open class UIRating: UIView {
         self.sliderUpdated(self.slider)
     }
     
+}
+
+//MARK: - Delegate
+extension UIRating: UIRatingDelegate {
+    public func currentRating(rating: Double) {
+        
+    }
 }
 
 private extension UIStackView {
