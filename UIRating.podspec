@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "UIRating"
-  spec.version      = "1.0.0"
+  spec.version      = "1.0.1"
   spec.summary      = "A customizable rating view for iOS."
 
   spec.description  = <<-DESC
