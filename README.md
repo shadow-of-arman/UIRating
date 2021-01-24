@@ -37,7 +37,7 @@ Give the desired constraints and set the delegate:
 ```
 DONE! 
 
-### Customization
+#### Customization
 
 
 ``` Swift
@@ -50,7 +50,7 @@ DONE!
  self.stackView.allowHalfSelections = true //enables selecting half a rating.
 ```
 
-### Delegate
+#### Delegate
 
 ```Swift
  extension ViewController: UIRatingDelegate {
