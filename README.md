@@ -22,7 +22,7 @@ A customizable rating View written in Swift.
 
 ```ruby
 # CocoaPods
-pod "UIRating", "~> 1.0.0"
+pod "UIRating", "~> 1.0.1"
 ```
 ## Usage
 
