@@ -23,6 +23,7 @@ open class UIRating: UIView {
             self.stackView.spacing = self.spacing
         }
     }
+    fileprivate var rating = 0
     
     //icons
     /// Sets the icon to use for an empty rating.
@@ -126,6 +127,7 @@ open class UIRating: UIView {
         for i in 0...(numberOfOptions - 1) {
             let imageView = self.stackView.arrangedSubviews[i] as! UIImageView
             if self.slider.value > (self.option - y) {
+                self.rating += 1
                 if imageView.image != self.fullIcon {
                     UIView.transition(with: imageView, duration: 0.3, options: .transitionFlipFromLeft) {
                         imageView.image = self.fullIcon
@@ -138,14 +140,18 @@ open class UIRating: UIView {
                 }
             } else {
                 if imageView.image != self.emptyIcon {
+                    if self.rating < 0 {
+                        self.rating -= 1                        
+                    }
                     UIView.transition(with: imageView, duration: 0.3, options: .transitionFlipFromRight) {
                         imageView.image = self.emptyIcon
                     }
                 }
-//                imageView.image = self.emptyIcon
-                }
+            }
             self.option += y
         }
+        print(self.rating)
+        self.rating = 0
         self.option = y //reset
     }
     
