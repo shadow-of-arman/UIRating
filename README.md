@@ -1,3 +1,5 @@
+![](Preview.gif)
+
 # UIRating
 A customizable rating View written in Swift.
 
@@ -20,7 +22,7 @@ A customizable rating View written in Swift.
 
 ```ruby
 # CocoaPods
-pod "UIRating", "~> 0.0.1"
+pod "UIRating", "~> 1.0.0"
 ```
 ## Usage
 
