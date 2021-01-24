@@ -22,7 +22,9 @@ class ViewController: UIViewController {
     fileprivate func allConfigs() {
         self.ratingViewConfig()
         self.ratingView.emptyIcon = UIImage(named: "empty")
+        self.ratingView.halfFullIcon = UIImage(named: "half-full")
         self.ratingView.fullIcon = UIImage(named: "full")
+//        self.ratingView.allowHalfSelection = true
     }
     
 //MARK: - rating view

@@ -14,16 +14,26 @@ open class UIRating: UIView {
     fileprivate let stackView = UIStackView()
     fileprivate var option: Float!
     fileprivate var animationHandler = false
+    fileprivate var rating:Double = 0.0
 
     /// Sets the amount of option to rate from.
-    open var numberOfOptions: Int = 5
+    open var numberOfOptions: Int = 5 {
+        didSet {
+            self.optionsReset()
+        }
+    }
+    /// Allows the selection of half ratings if set to true.
+    open var allowHalfSelection = false {
+        didSet {
+            
+        }
+    }
     /// Sets the spacing between options.
     open var spacing: CGFloat = 15 {
         didSet {
             self.stackView.spacing = self.spacing
         }
     }
-    fileprivate var rating = 0
     
     //icons
     /// Sets the icon to use for an empty rating.
@@ -113,7 +123,7 @@ open class UIRating: UIView {
             option.contentMode = .scaleAspectFit
             self.stackView.addArrangedSubview(option)
         }
-        option = 1 / Float(self.numberOfOptions)
+        self.option = 1 / Float(self.numberOfOptions)
     }
     //reset
     fileprivate func optionsReset() {
@@ -124,10 +134,25 @@ open class UIRating: UIView {
 //MARK: - Slider objc
     @objc fileprivate func sliderUpdated(_ slider: UISlider) {
         let y = 1 / Float(self.numberOfOptions)
+        var ratingIncrease:Double = 1.0
+        if self.allowHalfSelection == true {
+            ratingIncrease = 0.5
+        }
         for i in 0...(numberOfOptions - 1) {
             let imageView = self.stackView.arrangedSubviews[i] as! UIImageView
+            if self.allowHalfSelection && self.slider.value > (self.option - y) && self.slider.value < (self.option - y + 0.1) {
+                self.rating += ratingIncrease
+                if imageView.image != self.halfFullIcon {
+                    UIView.transition(with: imageView, duration: 0.3, options: .transitionCrossDissolve, animations: {
+                        imageView.image = self.halfFullIcon
+                    }, completion: nil)
+                }
+            } else
             if self.slider.value > (self.option - y) {
-                self.rating += 1
+                if self.allowHalfSelection {
+                    self.rating += ratingIncrease
+                }
+                self.rating += ratingIncrease
                 if imageView.image != self.fullIcon {
                     UIView.transition(with: imageView, duration: 0.3, options: .transitionFlipFromLeft) {
                         imageView.image = self.fullIcon
@@ -141,7 +166,7 @@ open class UIRating: UIView {
             } else {
                 if imageView.image != self.emptyIcon {
                     if self.rating < 0 {
-                        self.rating -= 1                        
+                        self.rating -= ratingIncrease
                     }
                     UIView.transition(with: imageView, duration: 0.3, options: .transitionFlipFromRight) {
                         imageView.image = self.emptyIcon
