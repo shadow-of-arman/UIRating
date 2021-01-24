@@ -4,6 +4,7 @@ A customizable rating View written in Swift.
 ![Supported Platforms](https://img.shields.io/cocoapods/p/I?color=blue)
 [![Swift Version](https://img.shields.io/badge/language-swift%205.0-brightgreen.svg)](https://developer.apple.com/swift)
 [![Documentation](docs/badge.svg)](http://shadow-of-arman.github.io/UIRating/) 
+![Travis Build](https://www.travis-ci.com/shadow-of-arman/UIRating.svg?token=weF1xTzfUenaV6bq2Q5P&branch=master)
 [![GitHub license](https://img.shields.io/badge/license-MIT-important.svg)](https://github.com/shadow-of-arman/UIRating/blob/master/LICENSE)
 
 ### Features
