@@ -22,7 +22,7 @@ A customizable rating View written in Swift.
 
 ```ruby
 # CocoaPods
-pod "UIRating", "~> 1.0.0"
+pod "UIRating", "~> 1.0.1"
 ```
 ## Usage
 
@@ -79,4 +79,4 @@ You can find [the docs here](http://shadow-of-arman.github.io/UIRating/). Docume
 
 ## License
 
-UIVideoPlayer is available under the MIT license, see the [LICENSE](https://github.com/shadow-of-arman/UIRating/blob/master/LICENSE) file for more information.
+UIRating is available under the MIT license, see the [LICENSE](https://github.com/shadow-of-arman/UIRating/blob/master/LICENSE) file for more information.
