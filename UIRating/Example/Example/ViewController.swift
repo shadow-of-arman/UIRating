@@ -21,6 +21,8 @@ class ViewController: UIViewController {
 //MARK: - all configs
     fileprivate func allConfigs() {
         self.ratingViewConfig()
+        self.ratingView.emptyIcon = UIImage(named: "empty")
+        self.ratingView.fullIcon = UIImage(named: "full")
     }
     
 //MARK: - rating view

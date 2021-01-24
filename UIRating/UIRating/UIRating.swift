@@ -12,7 +12,9 @@ open class UIRating: UIView {
     
     fileprivate let slider = UISlider()
     fileprivate let stackView = UIStackView()
-    
+    fileprivate var option: Float!
+    fileprivate var animationHandler = false
+
     /// Sets the amount of option to rate from.
     open var numberOfOptions: Int = 5
     /// Sets the spacing between options.
@@ -24,7 +26,11 @@ open class UIRating: UIView {
     
     //icons
     /// Sets the icon to use for an empty rating.
-    lazy open var emptyIcon    = UIImage(named: "UIRating_empty_icon"    , in: Bundle.init(for: type(of: self)), compatibleWith: nil)
+    lazy open var emptyIcon    = UIImage(named: "UIRating_empty_icon"    , in: Bundle.init(for: type(of: self)), compatibleWith: nil) {
+        didSet {
+            self.optionsReset()
+        }
+    }
     /// Sets the icon to use for a half rating.
     lazy open var halfFullIcon = UIImage(named: "UIRating_half_full_icon", in: Bundle.init(for: type(of: self)), compatibleWith: nil)
     /// Sets the icon to use for a full rating.
@@ -101,17 +107,46 @@ open class UIRating: UIView {
 //MARK: - icon
     //config
     fileprivate func optionsConfig() {
-        for _ in 1...self.numberOfOptions {
+        for _ in 0...(numberOfOptions - 1) {
             let option = UIImageView(image: self.emptyIcon)
             option.contentMode = .scaleAspectFit
             self.stackView.addArrangedSubview(option)
         }
+        option = 1 / Float(self.numberOfOptions)
     }
-    
-    
+    //reset
+    fileprivate func optionsReset() {
+        self.stackView.removeAllArrangedSubviews()
+        self.optionsConfig()
+    }
+        
 //MARK: - Slider objc
     @objc fileprivate func sliderUpdated(_ slider: UISlider) {
-        print(self.slider.value)
+        let y = 1 / Float(self.numberOfOptions)
+        for i in 0...(numberOfOptions - 1) {
+            let imageView = self.stackView.arrangedSubviews[i] as! UIImageView
+            if self.slider.value > (self.option - y) {
+                if imageView.image != self.fullIcon {
+                    UIView.transition(with: imageView, duration: 0.3, options: .transitionFlipFromLeft) {
+                        imageView.image = self.fullIcon
+                        imageView.transform = CGAffineTransform.init(translationX: 0, y: -imageView.frame.height / 2)
+                    } completion: { (_) in
+                        UIView.animate(withDuration: 0.2) {
+                            imageView.transform = .identity
+                        }
+                    }
+                }
+            } else {
+                if imageView.image != self.emptyIcon {
+                    UIView.transition(with: imageView, duration: 0.3, options: .transitionFlipFromRight) {
+                        imageView.image = self.emptyIcon
+                    }
+                }
+//                imageView.image = self.emptyIcon
+                }
+            self.option += y
+        }
+        self.option = y //reset
     }
     
     @objc fileprivate func sliderTapped(gestureRecognizer: UIGestureRecognizer) {
@@ -138,4 +173,21 @@ open class UIRating: UIView {
         self.sliderUpdated(self.slider)
     }
     
+}
+
+private extension UIStackView {
+    
+    func removeAllArrangedSubviews() {
+        
+        let removedSubviews = arrangedSubviews.reduce([]) { (allSubviews, subview) -> [UIView] in
+            self.removeArrangedSubview(subview)
+            return allSubviews + [subview]
+        }
+        
+        // Deactivate all constraints
+        NSLayoutConstraint.deactivate(removedSubviews.flatMap({ $0.constraints }))
+        
+        // Remove the views from self
+        removedSubviews.forEach({ $0.removeFromSuperview() })
+    }
 }
