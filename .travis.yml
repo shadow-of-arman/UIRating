@@ -5,6 +5,9 @@ env:
   - LC_CTYPE=en_US.UTF-8
   - LANG=en_US.UTF-8
   - IOS_SDK=iphonesimulator14.0
+  - CODECOV_TOKEN="d3795698-89f5-490c-9998-41db7371b589"
 script:
   - xcodebuild -showsdks
   - xcodebuild -project UIRating/UIRating.xcodeproj -scheme 'UIRating' -sdk $IOS_SDK build analyze
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
