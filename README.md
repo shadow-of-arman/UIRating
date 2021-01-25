@@ -5,6 +5,7 @@ A customizable rating View written in Swift.
 
 ![Supported Platforms](https://img.shields.io/cocoapods/p/I?color=blue)
 [![Swift Version](https://img.shields.io/badge/language-swift%205.0-brightgreen.svg)](https://developer.apple.com/swift)
+[![Pod Version](https://img.shields.io/cocoapods/v/UIRating.svg)](https://cocoapods.org/pods/UIRating)
 [![Documentation](docs/badge.svg)](http://shadow-of-arman.github.io/UIRating/) 
 ![Travis Build](https://www.travis-ci.com/shadow-of-arman/UIRating.svg?token=weF1xTzfUenaV6bq2Q5P&branch=master)
 [![GitHub license](https://img.shields.io/badge/license-MIT-important.svg)](https://github.com/shadow-of-arman/UIRating/blob/master/LICENSE)
@@ -22,7 +23,7 @@ A customizable rating View written in Swift.
 
 ```ruby
 # CocoaPods
-pod "UIRating", "~> 1.0.1"
+pod "UIRating", "~> 1.0"
 ```
 ## Usage
 
@@ -44,9 +45,9 @@ DONE!
 
 
 ``` Swift
- self.stackView.emptyIcon = UIImage(named: "example") //sets the icon for empty rating.
+ self.stackView.emptyIcon = UIImage(named: "example")    //sets the icon for empty rating.
  self.stackView.halfFullIcon = UIImage(named: "example") //sets the icon for half a rating.
- self.stackView.fullIcon = UIIma(named: "example") //sets the icon for a full rating.
+ self.stackView.fullIcon = UIIma(named: "example").      //sets the icon for a full rating.
 
  self.stackView.numberOfOptions = 7 //sets the number of rating options.
  
