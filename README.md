@@ -47,7 +47,7 @@ DONE!
 ``` Swift
  self.stackView.emptyIcon = UIImage(named: "example")    //sets the icon for empty rating.
  self.stackView.halfFullIcon = UIImage(named: "example") //sets the icon for half a rating.
- self.stackView.fullIcon = UIIma(named: "example").      //sets the icon for a full rating.
+ self.stackView.fullIcon = UIImage(named: "example")     //sets the icon for a full rating.
 
  self.stackView.numberOfOptions = 7 //sets the number of rating options.
  
