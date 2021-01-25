@@ -52,6 +52,8 @@ DONE!
  self.stackView.numberOfOptions = 7 //sets the number of rating options.
  
  self.stackView.allowHalfSelections = true //enables selecting half a rating.
+
+ self.stackView.spacing = 10 //sets the spacing between each rating icon.
 ```
 
 #### Delegate
