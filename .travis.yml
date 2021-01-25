@@ -10,4 +10,4 @@ script:
   - xcodebuild -showsdks
   - xcodebuild -project UIRating/UIRating.xcodeproj -scheme 'UIRating' -sdk $IOS_SDK build analyze
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+  - bash <(curl -s https://codecov.io/bash) -t uuid-repo-token
